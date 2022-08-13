@@ -24,6 +24,7 @@ export interface Country {
 interface CountryContextData {
   countries: Country[];
   setRegionFilter: React.Dispatch<React.SetStateAction<string>>;
+  getCountries(): Promise<void>;
 }
 
 interface CountriesProviderProps {
@@ -41,26 +42,30 @@ function CountriesProvider({ children }: CountriesProviderProps) {
   const [countries, setCountries] = useState<Country[]>([]);
   const [regionFilter, setRegionFilter] = useState<string>('');
 
-  useEffect(() => {
-    (async () => {
-      if (!regionFilter) {
-        await api
-          .get(`all?${filters}`)
-          .then((response) => response.data)
-          .then((data) => setCountries(data));
-
-        return;
-      }
-
+  const getCountries = async (): Promise<void> => {
+    if (!regionFilter) {
       await api
-        .get(`region/${regionFilter}?${filters}`)
+        .get(`all?${filters}`)
         .then((response) => response.data)
         .then((data) => setCountries(data));
-    })();
+
+      return;
+    }
+
+    await api
+      .get(`region/${regionFilter}?${filters}`)
+      .then((response) => response.data)
+      .then((data) => setCountries(data));
+  };
+
+  useEffect(() => {
+    getCountries();
   }, [regionFilter]);
 
   return (
-    <CountryContext.Provider value={{ countries, setRegionFilter }}>
+    <CountryContext.Provider
+      value={{ countries, setRegionFilter, getCountries }}
+    >
       {children}
     </CountryContext.Provider>
   );

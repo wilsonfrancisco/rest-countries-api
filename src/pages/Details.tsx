@@ -1,12 +1,19 @@
 import { ArrowLeft } from 'phosphor-react';
 import { Link, useParams } from 'react-router-dom';
+import { useCountries } from '../hooks/useCountries';
 import { useCountry } from '../hooks/useCountry';
 
 function Details() {
   const { countryCode } = useParams();
+  const { getCountries, countries } = useCountries();
+
+  if (!countries) {
+    getCountries();
+  }
+
   const country = useCountry(countryCode);
 
-  return (
+  return country ? (
     <section className="px-32 pt-14">
       <Link
         to="/"
@@ -76,7 +83,7 @@ function Details() {
             {country.borders.map((border) => {
               return (
                 <Link
-                  to={`/details/${border}`}
+                  to={`/details/${border.slice(0, -1)}`}
                   className="bg-white  py-[2px] px-6 rounded-sm shadow-md"
                 >
                   {border}
@@ -87,7 +94,7 @@ function Details() {
         </div>
       </div>
     </section>
-  );
+  ) : null;
 }
 
 export { Details };
