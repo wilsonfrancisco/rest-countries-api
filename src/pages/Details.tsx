@@ -17,7 +17,7 @@ function Details() {
     <section className="px-32 pt-14">
       <Link
         to="/"
-        className="bg-white flex gap-2 items-center rounded-md justify-center mb-14 p-1 w-28 shadow-[0_0_10px_0_rgba(0,0,0,0.1)]"
+        className="bg-white dark:text-white dark:bg-dark-blue-800 flex gap-2 items-center rounded-md justify-center mb-14 p-1 w-28 shadow-[0_0_10px_0_rgba(0,0,0,0.1)]"
       >
         <ArrowLeft weight="bold" />
         <span>Back</span>
@@ -31,60 +31,73 @@ function Details() {
           />
         </div>
         <div className="flex flex-col justify-center gap-8">
-          <h2 className="text-3xl font-bold">{country.name}</h2>
+          <h2 className="text-3xl font-bold dark:text-white">{country.name}</h2>
           <div className="flex justify-between text-sm">
             <ul className="flex flex-col gap-1">
-              <li>
-                <span className="font-semibold">Official Name: </span>
+              <li className="dark:text-gray-300">
+                <span className="font-semibold dark:text-white">
+                  Official Name:{' '}
+                </span>
                 {country.officialName}
               </li>
-              <li>
-                <span className="font-semibold">Population: </span>
+              <li className="dark:text-gray-300">
+                <span className="font-semibold dark:text-white">
+                  Population:{' '}
+                </span>
                 {new Intl.NumberFormat('pt-Br').format(country.population)}
               </li>
-              <li>
-                <span className="font-semibold">Region: </span>
+              <li className="dark:text-gray-300">
+                <span className="font-semibold dark:text-white">Region: </span>
                 {country.region}
               </li>
-              <li>
-                <span className="font-semibold">Sub Region: </span>
+              <li className="dark:text-gray-300">
+                <span className="font-semibold dark:text-white">
+                  Sub Region:{' '}
+                </span>
                 {country.subregion}
               </li>
-              <li>
-                <span className="font-semibold">Capital: </span>
+              <li className="dark:text-gray-300">
+                <span className="font-semibold dark:text-white">Capital: </span>
                 {country.capital}
               </li>
             </ul>
             <ul className="flex flex-col gap-1">
-              <li>
-                <span className="font-semibold">
+              <li className="dark:text-gray-300">
+                <span className="font-semibold dark:text-white">
                   Top Level Domain{country.tld.length > 1 ? 's' : ''}:
                 </span>{' '}
-                {country.tld.map((tld) => `${tld} `)}
+                {country.tld.map((tld) => (
+                  <span key={tld}>{tld} </span>
+                ))}
               </li>
-              <li>
-                <span className="font-semibold">
+              <li className="dark:text-gray-300">
+                <span className="font-semibold dark:text-white">
                   Currenc{country.currencies.length > 1 ? 'ies' : 'y'}:{' '}
                 </span>
-                {country.currencies.map((currency) => `${currency} `)}
+                {country.currencies.map((currency) => (
+                  <span key={currency}>{currency} </span>
+                ))}
               </li>
-              <li>
-                <span className="font-semibold">
+              <li className="dark:text-gray-300">
+                <span className="font-semibold dark:text-white">
                   Language{country.languages.length > 1 ? 's' : ''}:{' '}
                 </span>
-                {country.languages.map((language) => `${language} `)}
+                {country.languages.map((language) => (
+                  <span key={language}>{language} </span>
+                ))}
               </li>
             </ul>
           </div>
           <div className="flex text-sm gap-3 items-center w-full flex-wrap">
-            <span className="font-semibold">
+            <span className="font-semibold dark:text-white">
               Border Countr{country.borders.length > 1 ? 'ies' : 'y'}:{' '}
             </span>
             {country.borders.map((border) => {
               return (
                 <Link
+                  key={border}
                   to={`/details/${border.slice(0, -1)}`}
-                  className="bg-white  py-[2px] px-6 rounded-sm shadow-md"
+                  className="bg-white dark:text-gray-300 dark:bg-dark-blue-800  py-[2px] px-6 rounded-sm shadow-md"
                 >
                   {border}
                 </Link>

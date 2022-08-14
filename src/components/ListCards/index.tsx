@@ -20,11 +20,11 @@ function ListCards() {
       : [];
 
   return (
-    <main className="mx-32 mt-10">
+    <main className="px-32 pt-10">
       <form className="w-full flex justify-between items-center">
         <label
           htmlFor="country"
-          className="flex items-center gap-4 bg-white w-96 p-4 rounded-md text-gray-500 shadow-[0_0_5px_0_rgba(0,0,0,0.1)]"
+          className="dark:bg-dark-blue-800 dark:text-white flex items-center gap-4 bg-white w-96 p-4 rounded-md text-gray-500 shadow-[0_0_5px_0_rgba(0,0,0,0.1)]"
         >
           <MagnifyingGlass size={18} weight="bold" />
           <input
@@ -32,19 +32,19 @@ function ListCards() {
             name="country"
             id="country"
             placeholder="Search for a country..."
-            className="w-full h-full"
+            className="w-full h-full dark:bg-dark-blue-800 dark:placeholder:text-white"
             onChange={(e) => setSearchedCountry(e.target.value)}
           />
         </label>
 
         <label
           htmlFor="region"
-          className="bg-white font-semibold p-4 rounded-md w-48 shadow-[0_0_5px_0_rgba(0,0,0,0.1)]"
+          className="dark:bg-dark-blue-800 dark:text-white bg-white font-semibold p-4 rounded-md w-48 shadow-[0_0_5px_0_rgba(0,0,0,0.1)]"
         >
           <select
             name="region"
             id="region"
-            className="bg-white w-full"
+            className="bg-white w-full dark:bg-dark-blue-800 "
             onChange={(e) => setRegionFilter(e.target.value)}
           >
             <option selected disabled hidden>
@@ -60,7 +60,7 @@ function ListCards() {
         </label>
       </form>
 
-      <section className="mt-10 grid grid-cols-4 gap-14 h-[calc(100vh-14rem)] overflow-y-auto pb-8">
+      <section className="mt-10 grid grid-cols-4 gap-14 h-[70vh] overflow-y-auto pb-8">
         {searchedCountry.length > 0
           ? filteredCountries.map((country) => (
               <Card

@@ -14,3 +14,11 @@
 html {
   @apply bg-gray-50 text-dark-blue-900 dark:bg-dark-blue-700 dark:text-white;
 }
+
+#root {
+  height: 100vh;
+}
+
+body {
+  @apply dark:bg-dark-blue-700
+}
