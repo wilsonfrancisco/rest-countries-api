@@ -20,11 +20,11 @@ function ListCards() {
       : [];
 
   return (
-    <main className="px-32 pt-10">
-      <form className="w-full flex justify-between items-center">
+    <main className="pt-10 px-6 md:px-20 lg:px-32">
+      <form className="w-full flex flex-col gap-14 lg:gap-0 lg:flex-row lg:justify-between lg:items-center">
         <label
           htmlFor="country"
-          className="dark:bg-dark-blue-800 dark:text-white flex items-center gap-4 bg-white w-96 p-4 rounded-md text-gray-500 shadow-[0_0_5px_0_rgba(0,0,0,0.1)]"
+          className="dark:bg-dark-blue-800 dark:text-white flex items-center gap-4 bg-white w-full lg:w-96 p-4 rounded-md text-gray-500 shadow-[0_0_5px_0_rgba(0,0,0,0.1)]"
         >
           <MagnifyingGlass size={18} weight="bold" />
           <input
@@ -60,7 +60,7 @@ function ListCards() {
         </label>
       </form>
 
-      <section className="mt-10 grid grid-cols-4 gap-14 h-[70vh] overflow-y-auto pb-8">
+      <section className="mt-10 w-64 mx-auto md:w-full md:mx-o grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-14 pb-8">
         {searchedCountry.length > 0
           ? filteredCountries.map((country) => (
               <Card

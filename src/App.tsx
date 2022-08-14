@@ -11,8 +11,10 @@ function App() {
 
   return (
     <>
-      <header className="relative flex justify-between items-center py-5 px-32 bg-white dark:bg-dark-blue-800 dark:text-white shadow">
-        <h1 className="text-2xl font-extrabold">Where in the world?</h1>
+      <header className="relative flex justify-between items-center text-sm py-5 px-6 md:text-base md:px-20 lg:px-32 bg-white dark:bg-dark-blue-800 dark:text-white shadow">
+        <h1 className="md:xl lg:text-2xl font-extrabold">
+          Where in the world?
+        </h1>
         <button
           onClick={() => toggleThemeChange()}
           className="font-semibold flex justify-between items-center gap-2"
@@ -41,6 +43,3 @@ function App() {
 }
 
 export default App;
-function useDarkMode(): { mode: any; toggleTheme: any } {
-  throw new Error('Function not implemented.');
-}

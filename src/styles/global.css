@@ -16,7 +16,7 @@ html {
 }
 
 #root {
-  height: 100vh;
+  @apply md:h-screen
 }
 
 body {
