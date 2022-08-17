@@ -16,7 +16,7 @@ html {
 }
 
 #root {
-  @apply md:h-screen
+  @apply h-full md:h-screen
 }
 
 body {
