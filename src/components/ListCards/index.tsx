@@ -60,7 +60,7 @@ function ListCards() {
         </label>
       </form>
 
-      <section className="mt-10 w-64 mx-auto md:w-full md:mx-o grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-14 pb-8">
+      <section className="mt-10 w-64 mx-auto md:w-full md:mx-o grid grid-cols-1 md:grid-cols-2 h-[70vh] overflow-y-scroll lg:grid-cols-4 gap-14 pb-8">
         {searchedCountry.length > 0
           ? filteredCountries.map((country) => (
               <Card
