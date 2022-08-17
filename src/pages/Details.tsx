@@ -92,7 +92,7 @@ function Details() {
             <span className="font-semibold dark:text-white">
               Border Countr{country.borders.length > 1 ? 'ies' : 'y'}:{' '}
             </span>
-            <div className="flex gap-3 pb-16 flex-wrap">
+            <div className="flex gap-3 md:pb-16 flex-wrap">
               {country.borders.map((border) => {
                 return (
                   <Link
